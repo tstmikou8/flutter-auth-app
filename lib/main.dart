@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -6,9 +7,11 @@ import 'screens/home_screen.dart';
 import 'services/auth_service.dart';
 
 void main() {
-  // 初始化 FFI (用於 Linux/Desktop 平台)
-  sqfliteFfiInit();
-  databaseFactory = databaseFactoryFfi;
+  // 只在非 Android 平台初始化 FFI (Linux/Desktop)
+  if (!Platform.isAndroid) {
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
   
   runApp(const MyApp());
 }
