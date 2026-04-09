@@ -1,0 +1,27 @@
+name: flutter_auth_app
+description: A Flutter app with email-based authentication (Login, Logout, Forgot Password)
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  sqflite: ^2.3.0
+  sqflite_common_ffi: ^2.3.0+4
+  path: ^1.8.3
+  crypto: ^3.0.3
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  fluttertoast: ^8.2.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true

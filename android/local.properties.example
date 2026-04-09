@@ -1,0 +1,6 @@
+# Flutter SDK 路徑 - 請根據您的實際安裝位置修改
+flutter.sdk=/path/to/flutter
+
+# 例如：
+# Linux/macOS: flutter.sdk=/home/username/flutter
+# Windows: flutter.sdk=C:\\flutter
