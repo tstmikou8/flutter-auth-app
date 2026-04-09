@@ -64,7 +64,7 @@ class AuthService extends ChangeNotifier {
           )
         ''');
 
-        print('數據庫創建成功');
+        debugPrint('數據庫創建成功');
       },
     );
 
@@ -97,7 +97,7 @@ class AuthService extends ChangeNotifier {
       _authStateController.add(false);
       notifyListeners();
     } catch (e) {
-      print('檢查登入狀態失敗: $e');
+      debugPrint('檢查登入狀態失敗: $e');
       _authStateController.add(false);
       notifyListeners();
     }
@@ -139,11 +139,11 @@ class AuthService extends ChangeNotifier {
       });
 
       Fluttertoast.showToast(msg: '註冊成功！');
-      print('用戶註冊成功: $email, ID: $id');
+      debugPrint('用戶註冊成功: $email, ID: $id');
       return true;
     } catch (e) {
       Fluttertoast.showToast(msg: '註冊失敗：$e');
-      print('註冊錯誤: $e');
+      debugPrint('註冊錯誤: $e');
       return false;
     }
   }
@@ -192,11 +192,11 @@ class AuthService extends ChangeNotifier {
       notifyListeners();
 
       Fluttertoast.showToast(msg: '登入成功！');
-      print('用戶登入成功: ${user['email']}');
+      debugPrint('用戶登入成功: ${user['email']}');
       return true;
     } catch (e) {
       Fluttertoast.showToast(msg: '登入失敗：$e');
-      print('登入錯誤: $e');
+      debugPrint('登入錯誤: $e');
       return false;
     }
   }
@@ -214,10 +214,10 @@ class AuthService extends ChangeNotifier {
       notifyListeners();
 
       Fluttertoast.showToast(msg: '已登出');
-      print('用戶已登出');
+      debugPrint('用戶已登出');
     } catch (e) {
       Fluttertoast.showToast(msg: '登出失敗：$e');
-      print('登出錯誤: $e');
+      debugPrint('登出錯誤: $e');
     }
   }
 
@@ -242,11 +242,11 @@ class AuthService extends ChangeNotifier {
       // 模擬發送重設連結
       // 在實際應用中，這裡會發送郵件
       Fluttertoast.showToast(msg: '密碼重設連結已發送到 $email');
-      print('密碼重設請求: $email');
+      debugPrint('密碼重設請求: $email');
       return true;
     } catch (e) {
       Fluttertoast.showToast(msg: '發送失敗：$e');
-      print('重設密碼錯誤: $e');
+      debugPrint('重設密碼錯誤: $e');
       return false;
     }
   }
@@ -271,11 +271,11 @@ class AuthService extends ChangeNotifier {
       notifyListeners();
 
       Fluttertoast.showToast(msg: '信箱驗證成功！');
-      print('信箱驗證成功: ${_currentUser!['email']}');
+      debugPrint('信箱驗證成功: ${_currentUser!['email']}');
       return true;
     } catch (e) {
       Fluttertoast.showToast(msg: '驗證失敗：$e');
-      print('驗證錯誤: $e');
+      debugPrint('驗證錯誤: $e');
       return false;
     }
   }
@@ -289,11 +289,11 @@ class AuthService extends ChangeNotifier {
       }
 
       Fluttertoast.showToast(msg: '驗證信已重新發送到 ${_currentUser!['email']}');
-      print('重新發送驗證信: ${_currentUser!['email']}');
+      debugPrint('重新發送驗證信: ${_currentUser!['email']}');
       return true;
     } catch (e) {
       Fluttertoast.showToast(msg: '發送失敗：$e');
-      print('發送驗證信錯誤: $e');
+      debugPrint('發送驗證信錯誤: $e');
       return false;
     }
   }
@@ -328,11 +328,11 @@ class AuthService extends ChangeNotifier {
       notifyListeners();
 
       Fluttertoast.showToast(msg: '密碼修改成功！');
-      print('密碼修改成功: ${_currentUser!['email']}');
+      debugPrint('密碼修改成功: ${_currentUser!['email']}');
       return true;
     } catch (e) {
       Fluttertoast.showToast(msg: '修改失敗：$e');
-      print('修改密碼錯誤: $e');
+      debugPrint('修改密碼錯誤: $e');
       return false;
     }
   }
@@ -356,11 +356,11 @@ class AuthService extends ChangeNotifier {
       await logout();
 
       Fluttertoast.showToast(msg: '帳號已刪除');
-      print('帳號已刪除: ${_currentUser!['email']}');
+      debugPrint('帳號已刪除: ${_currentUser!['email']}');
       return true;
     } catch (e) {
       Fluttertoast.showToast(msg: '刪除失敗：$e');
-      print('刪除帳號錯誤: $e');
+      debugPrint('刪除帳號錯誤: $e');
       return false;
     }
   }
@@ -384,7 +384,7 @@ class AuthService extends ChangeNotifier {
         'unverifiedUsers': totalUsers - verifiedUsers,
       };
     } catch (e) {
-      print('獲取統計信息錯誤: $e');
+      debugPrint('獲取統計信息錯誤: $e');
       return {
         'totalUsers': 0,
         'verifiedUsers': 0,
@@ -405,9 +405,9 @@ class AuthService extends ChangeNotifier {
         whereArgs: [now],
       );
 
-      print('過期會話已清理');
+      debugPrint('過期會話已清理');
     } catch (e) {
-      print('清理會話錯誤: $e');
+      debugPrint('清理會話錯誤: $e');
     }
   }
 
